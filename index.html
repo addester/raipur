@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="hometown.css">
+        <title>Raipur</title>
+    </head>
+    <body>
+        <div class="rprbg"></div>
+        <div class="rpr">
+            <h1>Raipur</h1>
+        </div>
+
+        <div class="scro">
+            <table class="link">
+                <tr>
+                    <th><a href="#co" class="about">About Raipur</a></th>
+                    <th><a href="#ma" class="mappi">Map plug-in</a></th>
+                    <th><a href="#yy" class="ytv">Youtube Video</a></th>
+                    <th><a href="#loca" class="lo">location</a></th>
+                    <th><a href="#vide" class="vp">Video player</a></th>
+                    <th><a href="#au" class="ap">Audio player</a></th>
+                    <th><a href="#dand" class="Dd">Drag & Drop</a></th>
+                    <th><a href="#adi" class="crte">Creater</a></th>
+                </tr>
+            </table>
+        </div>
+
+        <div class="contbg"></div>
+        <div class="cont" id="co">
+            <p>If in just one word I have to describe it, i’ll describe raipur as : <i>peaceful</i></p>
+            <p><b>To be more elaborative:</b></p>
+            <ul>
+                <li>ease of living in here is fairly good. lets shift to Raipur, I can get anything/everything so quickly and easisly and smoothly, like a blink of an eye</li>
+                <li>good restaurants, bars, cafes.(it is great for all you foodies)</li>
+                <li>all most all brands of apparels are available.(it is as good as it is good for foodies to be in Raipur, you flamboyant peeps, who need a tommy or calvin klein hardy et cetera. banngg ! you have it)</li>
+                <li>traffic is not so heavy. Raipur is that it is very small in terms of radius, you can travel from one end to another in less than an hour.</li>
+                <li>To know more about Raipur, click <a href="https://www.quora.com/Hows-life-at-Raipur-Chhattisgarh">here</a></li>
+            </ul>
+        </div>
+
+    
+        <div class="lockbg"></div>
+        <div class="loc" id="loca">
+            <p>Click the button to get your coordinates.</p>
+
+            <button onclick="getLocation()">Try It</button>
+
+            <p id="demo"></p>
+        </div>
+        
+
+     
+        <div class="mapbg"></div>
+        <iframe class="map" id="ma" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d118983.74009302471!2d81.54903283001059!3d21.261891082426516!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a28dda23be28229%3A0x163ee1204ff9e240!2sRaipur%2C%20Chhattisgarh!5e0!3m2!1sen!2sin!4v1649159930560!5m2!1sen!2sin" width="700" height="400" style="border:5px;color: rgb(216, 53, 53);" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+
+  
+        <div class="audbg"></div>
+        <audio controls class="aud" id="au">
+            <source src="mr.ogg" type="audio/ogg">
+            <source src="mr.mp3" type="audio/mpeg">
+        </audio>
+
+      
+        <div class="ytbg"></div>
+        <iframe class="yt" id="yy" width="700" height="375" src="https://youtube.com/embed/4PRUzS2IOfU">
+        </iframe>
+
+        <div class="vidbg"></div>
+        <video width="500" height="500" controls class="vid" id="vide">
+            <source src="vid.mp4" type="video/mp4">
+            <source src="vid.ogg" type="video/ogg">
+        </video>
+
+        <div class="dndbg"></div>
+        <div class="dnd" id="dand">
+            <h2>Drag and Drop</h2>
+            <p>Drag the image back and forth between the two boxes to win a lucky prize!</p>
+
+            <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <img src="morrpr.png" draggable="true" ondragstart="drag(event)" id="drag1" width="88" height="31">
+            
+            </div>
+            <div id="div2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+        </div>
+
+        <div class="adibg"></div>
+        <div class="aadi" id="adi">
+            <p>To know more about the creater, click <a href="resumecpy.html" target="_blank">here!</a></p>
+        </div>
+        
+        <div class="webst" id="websto">
+            <p><button onclick="clickCounter()" type="button">Click me!</button></p>
+            <div id="result"></div>
+            <p>Click the button to see the counter increase.</p>
+            <p>Close the browser tab (or window), and try again, and the counter will continue to count (is not reset).</p>
+        </div>
+        <div class="sm" id="socm">
+            <table class="social">
+                <th><a href="Twitter.com" target="_blank"></a>Twitter</th>
+                <th><a href="instagram.com" target="_blank"></a>Instagram</th>
+                <th><a href="facebook.com" target="_blank"></a>Facebook</th>
+            </table>
+        </div>
+        <script>
+            var x = document.getElementById("demo");
+            
+            function getLocation() {
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(showPosition);
+                } else { 
+                    x.innerHTML = "Geolocation is not supported by this browser.";
+                }
+            }
+            
+            function showPosition(position) {
+            x.innerHTML = "Latitude: " + position.coords.latitude + 
+            "<br>Longitude: " + position.coords.longitude;
+            }
+
+
+
+            function allowDrop(ev) {
+            ev.preventDefault();
+            }
+
+            function drag(ev) {
+            ev.dataTransfer.setData("text", ev.target.id);
+            }
+
+            function drop(ev) {
+            ev.preventDefault();
+            var data = ev.dataTransfer.getData("text");
+            ev.target.appendChild(document.getElementById(data));
+            }
+
+            function clickCounter() {
+                if (typeof(Storage) !== "undefined") {
+                    if (localStorage.clickcount) {
+                    localStorage.clickcount = Number(localStorage.clickcount)+1;
+                    } else {
+                    localStorage.clickcount = 1;
+                    }
+                    document.getElementById("result").innerHTML = "You have clicked the button " + localStorage.clickcount + " time(s).";
+                } else {
+                    document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage...";
+                }
+            }
+        </script>
+    </body>
+</html>
